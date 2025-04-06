@@ -1,7 +1,7 @@
 
 ## [**🇫🇷 Version française / French Version (Cliquer pour voir)**](/README_FR.md)
 
-# Midnight Flavor V 2.1 
+# Cyberpunk V 2.1 
 
 a midnight Flavors customizable discord theme, reworked by Warzob
 
