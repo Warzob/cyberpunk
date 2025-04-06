@@ -1,0 +1,418 @@
+/**
+ * @name Cyberpunk Ultime // v2.1
+ * @description Thème Cyberpunk immersif avec animations futuristes et effets de glitch
+ * @author Warzob
+ * @version 2.1.0
+ * @website https://github.com/Warzob/MidnightFlavor
+ * @invite tVFHNrWJkY
+*/
+
+/* Importer les modules du thème */
+@import url('https://raw.githubusercontent.com/Warzob/ThemedependanceWZ/refs/heads/main/build/midnightv2.css');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=VT323&display=swap'); /* Polices futuristes */
+
+/* Configuration de base */
+body {
+    /* Police futuriste */
+    --font: 'Orbitron';
+
+    /* Tailles */
+    --gap: 12px; /* Espacement entre les panneaux */
+    --divider-thickness: 4px; /* Épaisseur des séparateurs de messages non lus et des bordures de messages mis en surbrillance */
+
+    /* Options d'animation/transition */
+    --animations: on; /* Activer toutes les animations */
+    --list-item-transition: 0.2s ease; /* Transition pour les éléments de liste */
+    --dms-icon-svg-transition: 0.4s ease; /* Transition pour l'icône des messages directs */
+
+    /* Options de la barre supérieure */
+    --move-top-bar-buttons: on; /* Déplacer le bouton de la boîte de réception dans la liste des serveurs */
+    --custom-app-top-bar-height: 32px; /* Hauteur de la barre de titre/barre supérieure */
+
+    /* Contrôles de fenêtre */
+    --custom-window-controls: on; /* Activer les contrôles de fenêtre personnalisés */
+    --window-control-size: 14px; /* Taille des contrôles de fenêtre personnalisés */
+
+    /* Options de l'icône du bouton des messages directs */
+    --dms-icon: on; /* Utiliser une icône personnalisée */
+    --dms-icon-svg-url: url('https://raw.githubusercontent.com/Warzob/midnight-discord/2f16f8df20074699ece3b8f9d684752d804edd8e/assets/skeleton-16-svgrepo-com.svg'); /* URL de l'icône SVG */
+    --dms-icon-svg-size: 80%; /* Taille du SVG */
+    --dms-icon-color-before: var(--neon-blue); /* Couleur normale de l'icône */
+    --dms-icon-color-after: var(--neon-pink); /* Couleur de l'icône au survol/sélection */
+
+    /* Options de l'arrière-plan du bouton des messages directs */
+    --dms-background: color; /* Utiliser un dégradé personnalisé */
+    --dms-background-color: linear-gradient(70deg, var(--neon-blue), var(--neon-purple)); /* Dégradé néon */
+
+    /* Options de l'image d'arrière-plan */
+    --background-image: on; /* Activer l'image d'arrière-plan */
+    --background-image-url: url('https://wallpapercave.com/wp/wp10524614.jpg'); /* Image d'une ville cyberpunk */
+
+    /* Options de transparence/flou */
+    --transparency-tweaks: on; /* Activer les ajustements de transparence */
+    --remove-bg-layer: off; /* Ne pas supprimer la couche de fond */
+    --panel-blur: on; /* Activer le flou des panneaux */
+    --blur-amount: 12px; /* Quantité de flou */
+    --bg-floating: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour les panneaux flottants */
+
+    /* Options de la barre de chat */
+    --flipped-chatbar: on; /* Déplacer l'indicateur de saisie au-dessus de la barre de chat */
+    --chatbar-height: 47px; /* Hauteur de la barre de chat */
+    --chatbar-padding: 8px; /* Remplissage de la barre de chat */
+
+    /* Autres options */
+    --small-user-panel: off; /* Ne pas réduire le panneau utilisateur */
+}
+
+/* Options de couleur */
+:root {
+    --colors: on; /* Activer les couleurs personnalisées */
+
+    /* Couleurs néon cyberpunk */
+    --neon-blue: #00f0ff; /* Bleu néon */
+    --neon-pink: #ff00ff; /* Rose néon */
+    --neon-purple: #aa00ff; /* Violet néon */
+    --neon-green: #00ffaa; /* Vert néon */
+    --neon-red: #ff4444; /* Rouge néon */
+    --neon-dark: #0a0a1e; /* Fond sombre */
+
+    /* Couleurs de texte */
+    --text-0: var(--neon-blue); /* Texte sur les éléments colorés */
+    --text-1: var(--neon-pink); /* Autre texte normalement blanc */
+    --text-2: var(--neon-purple); /* Titres et texte important */
+    --text-3: #b0b0ff; /* Texte normal */
+    --text-4: #8080ff; /* Boutons d'icônes et canaux */
+    --text-5: #6060ff; /* Canaux/chats en sourdine et horodatages */
+
+    /* Couleurs de fond et sombres */
+    --bg-1: rgba(10, 10, 30, 0.9); /* Boutons sombres lorsqu'ils sont cliqués */
+    --bg-2: rgba(10, 10, 30, 0.8); /* Boutons sombres */
+    --bg-3: rgba(10, 10, 30, 0.7); /* Espacement, éléments secondaires */
+    --bg-4: rgba(10, 10, 30, 0.6); /* Couleur de fond principale */
+    --hover: rgba(0, 240, 255, 0.1); /* Canaux et boutons au survol */
+    --active: rgba(0, 240, 255, 0.2); /* Canaux et boutons lorsqu'ils sont cliqués ou sélectionnés */
+    --active-2: rgba(0, 240, 255, 0.3); /* État supplémentaire pour les boutons transparents */
+    --message-hover: rgba(0, 240, 255, 0.1); /* Messages au survol */
+
+    /* Couleurs d'accentuation */
+    --accent-1: var(--neon-blue); /* Liens et texte d'accentuation */
+    --accent-2: var(--neon-pink); /* Petits éléments d'accentuation */
+    --accent-3: var(--neon-purple); /* Boutons d'accentuation */
+    --accent-4: var(--neon-green); /* Boutons d'accentuation au survol */
+    --accent-5: var(--neon-red); /* Boutons d'accentuation lorsqu'ils sont cliqués */
+    --accent-new: var(--neon-purple); /* Éléments comme les boutons de sourdine/désactivation */
+    --mention: linear-gradient(to right, color-mix(in hsl, var(--neon-blue), transparent 90%) 40%, transparent); /* Fond des messages qui vous mentionnent */
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--neon-pink), transparent 95%) 40%, transparent); /* Fond des messages qui vous mentionnent au survol */
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--neon-purple), transparent 90%) 40%, transparent); /* Fond des messages qui vous répondent */
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--neon-purple), transparent 95%) 40%, transparent); /* Fond des messages qui vous répondent au survol */
+
+    /* Couleurs des indicateurs de statut */
+    --online: var(--neon-green); /* En ligne */
+    --dnd: var(--neon-red); /* Ne pas déranger */
+    --idle: var(--neon-purple); /* Inactif */
+    --streaming: var(--neon-pink); /* En streaming */
+    --offline: #6060ff; /* Hors ligne */
+}
+
+
+/* hide nameplates */
+
+/* a few side-effects, includes but not limited to:
+ * removing the highlight on selected member
+ * the x in dms is darker
+ * prob some other stuff that i havent realized
+ */
+ .container__4bbc6 {
+    display: none;
+}
+
+
+/* Panneaux semi-transparents avec flou et bordures néon clignotantes */
+div[class*="guilds-"], div[class*="base-"], div[class*="chat-"] {
+    background: rgba(10, 10, 30, 0.6) !important; /* Fond semi-transparent */
+    backdrop-filter: blur(12px) !important; /* Flou d'arrière-plan */
+    border: 2px solid var(--neon-blue) !important; /* Bordure néon plus épaisse */
+    box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink) !important; /* Ombre lumineuse plus intense */
+    animation: panelGlow 2s infinite !important; /* Pulsation néon */
+}
+
+/* Animation de pulsation pour les panneaux */
+@keyframes panelGlow {
+    0% { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink); border-color: var(--neon-blue); }
+    50% { box-shadow: 0 0 30px var(--neon-blue), 0 0 50px var(--neon-pink); border-color: var(--neon-pink); }
+    100% { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink); border-color: var(--neon-blue); }
+}
+
+/* Barre de titre avec effet glitch avancé */
+div[class*="titleBar-"] {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple)) !important;
+    background-size: 200% 100% !important;
+    color: var(--neon-green) !important;
+    animation: glitchTitle 1s infinite, wave 3s infinite !important;
+    text-shadow: 0 0 10px var(--neon-green) !important;
+}
+
+/* Animation glitch pour la barre de titre */
+@keyframes glitchTitle {
+    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    10% { transform: translate(-5px, 5px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    20% { transform: translate(5px, -5px); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    30% { transform: translate(-5px, 5px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    40% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Animation de vague pour les dégradés */
+@keyframes wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Effet de vague lumineuse sur les canaux au survol */
+div[class*="channel-"] {
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    color: var(--neon-blue) !important;
+}
+
+div[class*="channel-"]:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--neon-pink), transparent) !important;
+    animation: wave 1s infinite !important;
+    z-index: -1 !important;
+}
+
+div[class*="channel-"]:hover {
+    color: var(--neon-pink) !important;
+    text-shadow: 0 0 10px var(--neon-pink) !important;
+}
+
+/* Effet glitch avancé sur les messages */
+div[class*="message-"] {
+    position: relative !important;
+    transition: all 0.3s ease !important;
+    color: var(--neon-blue) !important;
+}
+
+div[class*="message-"]:hover {
+    animation: messageGlitch 0.3s infinite !important;
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink) !important;
+}
+
+/* Animation glitch pour les messages */
+@keyframes messageGlitch {
+    0% { transform: translate(0); color: var(--neon-blue); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    20% { transform: translate(-3px, 3px); color: var(--neon-pink); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    40% { transform: translate(3px, -3px); color: var(--neon-purple); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    60% { transform: translate(-3px, 3px); color: var(--neon-green); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    80% { transform: translate(3px, -3px); color: var(--neon-red); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    100% { transform: translate(0); color: var(--neon-blue); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Effet de distorsion sur les messages mentionnés */
+div[class*="mentioned-"] {
+    position: relative !important;
+    background: none !important;
+}
+
+div[class*="mentioned-"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--neon-red), transparent) !important;
+    animation: wave 1s infinite !important;
+    z-index: -1 !important;
+}
+
+div[class*="mentioned-"] {
+    animation: distortion 2s infinite !important;
+}
+
+/* Animation de distorsion */
+@keyframes distortion {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(2deg); }
+    40% { transform: skew(-2deg); }
+    60% { transform: skew(2deg); }
+    80% { transform: skew(-2deg); }
+    100% { transform: skew(0deg); }
+}
+
+/* Halo animé sur les avatars */
+div[class*="avatar-"] {
+    position: relative !important;
+    border-radius: 50% !important;
+}
+
+div[class*="avatar-"]::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-purple) !important;
+    opacity: 0;
+    animation: halo 2s infinite !important;
+    z-index: -1 !important;
+}
+
+/* Animation du halo */
+@keyframes halo {
+    0% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.3); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+/* Effet de particules sur la barre latérale des serveurs */
+div[class*="guilds-"] {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+div[class*="guilds-"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--neon-blue) 1px, transparent 1px),
+                radial-gradient(circle, var(--neon-pink) 1px, transparent 1px),
+                radial-gradient(circle, var(--neon-green) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    background-position: 0 0, 10px 10px, 5px 5px !important;
+    animation: particles 5s linear infinite !important;
+    opacity: 0.5 !important; /* Augmenter l'opacité */
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+/* Icônes de serveurs avec effet glitch */
+div[class*="guild-"] {
+    animation: guildGlitch 2s infinite !important;
+}
+
+/* Animation glitch pour les icônes de serveurs */
+@keyframes guildGlitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Séparateurs de messages avec effet glitch et vague */
+div[class*="divider-"] {
+    border: none !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple), var(--neon-green)) !important;
+    background-size: 200% 100% !important;
+    animation: wave 2s infinite, glitchDivider 1s infinite !important;
+    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink) !important;
+}
+
+/* Animation glitch pour les séparateurs */
+@keyframes glitchDivider {
+    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    20% { transform: translate(-3px, 0); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    40% { transform: translate(3px, 0); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    60% { transform: translate(-3px, 0); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    80% { transform: translate(3px, 0); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Barre de chat avec effet néon et particules */
+div[class*="chatInput-"] {
+    position: relative !important;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-pink)) !important;
+    background-size: 200% 100% !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    animation: wave 3s infinite !important;
+    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-pink) !important;
+    border: 2px solid var(--neon-blue) !important;
+    animation: panelGlow 2s infinite !important; /* Pulsation néon */
+}
+
+/* S'assurer que tous les boutons de la barre de chat sont visibles */
+div[class*="chatInput-"] div[class*="buttons-"] {
+    display: flex !important; /* Forcer l'affichage des boutons */
+    opacity: 1 !important; /* S'assurer qu'ils ne sont pas masqués */
+    gap: 8px !important; /* Espacement entre les boutons */
+}
+
+/* Style des boutons de la barre de chat */
+div[class*="chatInput-"] div[class*="buttons-"] button {
+    background: transparent !important;
+    border: 1px solid var(--neon-blue) !important;
+    border-radius: 5px !important;
+    box-shadow: 0 0 10px var(--neon-blue) !important;
+    transition: all 0.3s ease !important;
+    padding: 5px !important;
+}
+
+/* Effet au survol des boutons */
+div[class*="chatInput-"] div[class*="buttons-"] button:hover {
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink)) !important;
+    box-shadow: 0 0 15px var(--neon-pink) !important;
+    border-color: var(--neon-pink) !important;
+    animation: buttonGlitch 0.5s infinite !important;
+}
+
+/* Animation glitch pour les boutons */
+@keyframes buttonGlitch {
+    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    20% { transform: translate(-3px, 3px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    40% { transform: translate(3px, -3px); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    60% { transform: translate(-3px, 3px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
+    80% { transform: translate(3px, -3px); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
+    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Particules sur la barre de chat */
+div[class*="chatInput-"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--neon-pink) 1px, transparent 1px),
+                radial-gradient(circle, var(--neon-blue) 1px, transparent 1px),
+                radial-gradient(circle, var(--neon-green) 1px, transparent 1px) !important;
+    background-size: 20px 20px !important;
+    background-position: 0 0, 10px 10px, 5px 5px !important;
+    animation: particles 3s linear infinite !important;
+    opacity: 0.5 !important; /* Augmenter l'opacité */
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+/* Animation des particules */
+@keyframes particles {
+    0% { background-position: 0 0, 10px 10px, 5px 5px; }
+    100% { background-position: 20px 20px, 30px 30px, 25px 25px; }
+}
+
+.wrapper__2ea32:hover .unread__2ea32 {
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    margin-left: 3px;
+    background-color: transparent;
+    background: url('https://cdn.discordapp.com/emojis/1219786734557204491.webp?size=48');
+    background-size: 12px;
+    background-position: center;
+}
