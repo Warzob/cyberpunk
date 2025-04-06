@@ -1,5 +1,5 @@
 
-# Cyberpunk V3.0
+# Cyberpunk V2.1
 
 Un thème Discord personnalisable Midnight Mountains, retravaillé par Warzob.
 
