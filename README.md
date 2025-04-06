@@ -1,5 +1,5 @@
 
-## [**🇫🇷 Version française / French Version (Cliquer pour voir)**](/README_FR.md)
+## [**🇫🇷 Version française / French Version (Cliquer pour voir)**](README_FR.md)
 
 # Cyberpunk V 2.1 
 
