@@ -5,7 +5,7 @@ Un thème Discord personnalisable Midnight Mountains, retravaillé par Warzob.
 
 
 Cyberpunk:
-<img width=800 src="https://github.com/Warzob/MidnightFlavor/blob/main/SRC/Cyberpunk.png?raw=true">
+<img width=800 src="https://github.com/Warzob/cyberpunk_theme/blob/main/cyberpunk.png?raw=true">
 
 ## install
 
