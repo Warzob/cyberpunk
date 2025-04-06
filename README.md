@@ -7,7 +7,7 @@ a midnight Flavors customizable discord theme, reworked by Warzob
 
 
 Cyberpunk:
-<img width=600 src="https://github.com/Warzob/MidnightFlavor/blob/main/SRC/Cyberpunk.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk_theme/blob/main/cyberpunk.png?raw=true">
 
 
 
