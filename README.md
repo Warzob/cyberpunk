@@ -2,6 +2,8 @@
 ## [**🇫🇷 Version française / French Version (Cliquer pour voir)**](README_FR.md)
 
 # Cyberpunk V 2.1 
+soon V3 
+
 
 a midnight Flavors customizable discord theme, reworked by Warzob
 
