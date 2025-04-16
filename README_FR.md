@@ -23,7 +23,7 @@ Cyberpunk:
 
 ## discord server
 
-Besoin d'aide ? Voulez-vous donner votre avis ? Souhaitez-vous être informé des prochaines modifications ? Rejoignez <https://discord.gg/nz87hXyvcy>
+Besoin d'aide ? Voulez-vous donner votre avis ? Souhaitez-vous être informé des prochaines modifications ? Rejoignez <https://discord.gg/Xe6D5GwkwC>
 
 ## contributing
 
