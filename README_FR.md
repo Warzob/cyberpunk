@@ -1,11 +1,14 @@
 
-# Cyberpunk V2.1
+# Cyberpunk V3.1
 
-Un thème Discord personnalisable Midnight Mountains, retravaillé par Warzob.
+Un thème cyberpunk Discord, retravaillé par Warzob.
 
 
-Cyberpunk:
-<img width=800 src="https://github.com/Warzob/cyberpunk_theme/blob/main/cyberpunk.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/1.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/2.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/3.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/4.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/5.png?raw=true">
 
 ## install
 
