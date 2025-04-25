@@ -8,8 +8,11 @@ a midnight Flavors customizable discord theme, reworked by Warzob
 
 
 Cyberpunk:
-<img width=600 src="https://github.com/Warzob/cyberpunk_theme/blob/main/cyberpunk.png?raw=true">
-
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/1.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/2.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/3.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/4.png?raw=true">
+<img width=600 src="https://github.com/Warzob/cyberpunk/blob/main/pic/5.png?raw=true">
 
 
 ## install
