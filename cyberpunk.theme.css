@@ -1,418 +1,246 @@
 /**
- * @name Cyberpunk// v2.1
- * @description Thème Cyberpunk immersif avec animations futuristes et effets de glitch
- * @author Warzob
- * @version 2.1.0
- * @website https://github.com/Warzob/MidnightFlavor
- * @invite tVFHNrWJkY
+ * @name cyberpunk
+ * @description Cyberpunk theme for discord Vencord V3.1
+ * @author WarZob
+ * @version 3.2.0
+ * @website https://github.com/Warzob
+ * @source https://github.com/Warzob/cyberpunk
+ * @invite Xe6D5GwkwC
 */
 
-/* Importer les modules du thème */
-@import url('https://raw.githubusercontent.com/Warzob/ThemedependanceWZ/refs/heads/main/build/midnightv2.css');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=VT323&display=swap'); /* Polices futuristes */
+/* ========== import theme modules ========== */ 
+    /* ==========  Theme  ========== */ 
+        @import url('https://raw.githubusercontent.com/Warzob/ThemedependanceWZ/refs/heads/main/build/V3.1.css');
+        /* ========== Fonts ========== */ 
+            @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap');
 
-/* Configuration de base */
 body {
-    /* Police futuriste */
-    --font: 'Orbitron';
+    /* ========== font, change to '' for default discord font ========== */ 
+        --font: 'Orbitron';
+        font-weight: 400 /* normal text font weight. DOES NOT AFFECT BOLD TEXT */;
 
-    /* Tailles */
-    --gap: 12px; /* Espacement entre les panneaux */
-    --divider-thickness: 4px; /* Épaisseur des séparateurs de messages non lus et des bordures de messages mis en surbrillance */
+    /* ========== ON/OFF ========== */
+        --animations: on; /* off: disable animations/transitions, on: enable animations/transitions */
+        --top-bar-title-position: off; /* off: default centered position, hide: hide title completely, left: left align title (like old discord) */
+        --subtle-top-bar-title: on; /* off: default, on: hide the icon and use subtle text color (like old discord) */
+        --custom-dms-icon: on; /* off: use default discord icon, hide: remove icon entirely, custom: use custom icon */
+        --custom-dms-background: on; /* off to disable, image to use a background image (must set url variable below), color to use a custom color/gradient */
+        --background-image: on; /* off: no background image, on: enable background image (must set url variable below) */
+        --transparency-tweaks: off; /* off: no changes, on: remove some elements for better transparency */
+        --remove-bg-layer: off; /* off: no changes, on: remove the base --bg-3 layer for use with window transparency (WILL OVERRIDE BACKGROUND IMAGE) */
+        --panel-blur: on; /* off: no changes, on: blur the background of panels */
+        --custom-chatbar: aligned; /* off: default chatbar, aligned: chatbar aligned with the user panel, separated: chatbar separated from chat */
+        --small-user-panel: off; /* off: default user panel, on: smaller user panel like in old discord */
+        --custom-window-controls: on; /* off: default window controls, on: custom window controls */
 
-    /* Options d'animation/transition */
-    --animations: on; /* Activer toutes les animations */
-    --list-item-transition: 0.2s ease; /* Transition pour les éléments de liste */
-    --dms-icon-svg-transition: 0.4s ease; /* Transition pour l'icône des messages directs */
+        --ascii-loader: cyberpunk; /* off: default loader, mountains: mountains loader */
 
-    /* Options de la barre supérieure */
-    --move-top-bar-buttons: on; /* Déplacer le bouton de la boîte de réception dans la liste des serveurs */
-    --custom-app-top-bar-height: 32px; /* Hauteur de la barre de titre/barre supérieure */
+  /* ========== Image Emote Discord ========== */ 
+        --customEmojiIconURL: url(https://cdn.discordapp.com/emojis/1217110775601172591.gif?size=240&quality=lossless);
+        --customEmojiIconMask: url(https://cdn.discordapp.com/emojis/1217110775601172591.gif?size=240&quality=lossless);
+    
+  /* ========== Sizes ========== */   
+        --gap: 12px; /* spacing between panels */
+        --divider-thickness: 4px; /* thickness of unread messages divider and highlighted message borders */
+        --border-thickness: 1px; /* thickness of borders around main panels. DOES NOT AFFECT OTHER BORDERS */
+  
+  /* ========== Animation/Transition Options ========== */
+        --list-item-transition: 0.25s ease; /* transition for list items */
+        --dms-icon-svg-transition: 0.45s ease; /* transition for the dms icon */
+  
+  /* ========== Top Bar Options ========== */
+        --top-bar-height: 32px; /* height of the titlebar/top bar (discord default is 36px, 24px recommended if moving/hiding top bar buttons) */
+        --top-bar-button-position: titlebar; /* off: default position, hide: hide inbox/support buttons completely, serverlist: move inbox button to server list, titlebar: move inbox button to titlebar (will hide title) */
+  
+  /* ========== Window Controls ========== */
+        --window-control-size: 12px; /* size of custom window controls */
 
-    /* Contrôles de fenêtre */
-    --custom-window-controls: on; /* Activer les contrôles de fenêtre personnalisés */
-    --window-control-size: 14px; /* Taille des contrôles de fenêtre personnalisés */
+  /* ========== Dms Button Options ========== */
+        --dms-icon-svg-url: url('https://raw.githubusercontent.com/Warzob/ThemedependanceWZ/refs/heads/main/assets/skeleton-16-svgrepo-com.svg');
+        --dms-icon-svg-size: 100%; 
+        --dms-icon-color-before: var(--neon-blue); 
+        --dms-icon-color-after: var(--neon-dark);
+        --dms-background-image-size: cover; /* size of the background image (css background-size property) */
+        --dms-background-color: transparent; /* fixed color/gradient (css background property) */
 
-    /* Options de l'icône du bouton des messages directs */
-    --dms-icon: on; /* Utiliser une icône personnalisée */
-    --dms-icon-svg-url: url('https://raw.githubusercontent.com/Warzob/midnight-discord/2f16f8df20074699ece3b8f9d684752d804edd8e/assets/skeleton-16-svgrepo-com.svg'); /* URL de l'icône SVG */
-    --dms-icon-svg-size: 80%; /* Taille du SVG */
-    --dms-icon-color-before: var(--neon-blue); /* Couleur normale de l'icône */
-    --dms-icon-color-after: var(--neon-pink); /* Couleur de l'icône au survol/sélection */
+  /* ========== Background Image options ========== */
+        --background-image-url: url('https://wallpapercave.com/wp/wp10524614.jpg'); /* Fond original */
 
-    /* Options de l'arrière-plan du bouton des messages directs */
-    --dms-background: color; /* Utiliser un dégradé personnalisé */
-    --dms-background-color: linear-gradient(70deg, var(--neon-blue), var(--neon-purple)); /* Dégradé néon */
+  /* ========== Transparency/Blur options  NOTE: TO USE TRANSPARENCY/BLUR, YOU MUST HAVE TRANSPARENT BG COLORS. FOR EXAMPLE: --bg-4: hsla(220, 15%, 10%, 0.7); ========== */
+        --blur-amount: 3px; /* amount of blur */
+        --bg-floating: oklch(0.24 0.0136 264.28); /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
-    /* Options de l'image d'arrière-plan */
-    --background-image: on; /* Activer l'image d'arrière-plan */
-    --background-image-url: url('https://wallpapercave.com/wp/wp10524614.jpg'); /* Image d'une ville cyberpunk */
-
-    /* Options de transparence/flou */
-    --transparency-tweaks: on; /* Activer les ajustements de transparence */
-    --remove-bg-layer: off; /* Ne pas supprimer la couche de fond */
-    --panel-blur: on; /* Activer le flou des panneaux */
-    --blur-amount: 12px; /* Quantité de flou */
-    --bg-floating: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour les panneaux flottants */
-
-    /* Options de la barre de chat */
-    --flipped-chatbar: on; /* Déplacer l'indicateur de saisie au-dessus de la barre de chat */
-    --chatbar-height: 47px; /* Hauteur de la barre de chat */
-    --chatbar-padding: 8px; /* Remplissage de la barre de chat */
-
-    /* Autres options */
-    --small-user-panel: off; /* Ne pas réduire le panneau utilisateur */
+  /* ========== Chatbar Options ========== */
+        --chatbar-height: 47px; /* height of the chatbar (52px by default, 47px recommended for aligned, 56px recommended for separated) */
+        --chatbar-padding: 8px; /* padding of the chatbar. only applies in aligned mode. */
 }
 
-/* Options de couleur */
 :root {
-    --colors: on; /* Activer les couleurs personnalisées */
+    /* ========== Color Options ========== */   
+      --colors: on; /* off: discord default colors, on: midnight custom colors */
 
-    /* Couleurs néon cyberpunk */
-    --neon-blue: #00f0ff; /* Bleu néon */
-    --neon-pink: #ff00ff; /* Rose néon */
-    --neon-purple: #aa00ff; /* Violet néon */
-    --neon-green: #00ffaa; /* Vert néon */
-    --neon-red: #ff4444; /* Rouge néon */
-    --neon-dark: #0a0a1e; /* Fond sombre */
+    /* ========== Couleurs de texte ========== */
+        --text-0: oklch(0.96 0.0111 264.51); /* Texte sur les éléments colorés */
+        --text-1: oklch(0.96 0.0111 264.51); /* Autre texte normalement blanc */
+        --text-2: oklch(0.74 0.0395 264.3); /* Titres et texte important */
+        --text-3: oklch(0.66 0.0435 264.21); /* Texte normal */
+        --text-4: oklch(0.52 0.0145 264.44); /* Boutons d'icônes et canaux */
+        --text-5: oklch(0.45 0.0864 316.68); /* Canaux/chats en sourdine et horodatages */
 
-    /* Couleurs de texte */
-    --text-0: var(--neon-blue); /* Texte sur les éléments colorés */
-    --text-1: var(--neon-pink); /* Autre texte normalement blanc */
-    --text-2: var(--neon-purple); /* Titres et texte important */
-    --text-3: #b0b0ff; /* Texte normal */
-    --text-4: #8080ff; /* Boutons d'icônes et canaux */
-    --text-5: #6060ff; /* Canaux/chats en sourdine et horodatages */
+    /* ========== Couleurs de fond et sombres ========== */
+        --bg-1: oklch(0.31 0.0197 264.23); /* Boutons sombres lorsqu'ils sont cliqués */
+        --bg-2: oklch(0.27 0.0163 264.25); /* Boutons sombres */
+        --bg-3: oklch(0.24 0.0136 264.28); /* Espacement, éléments secondaires */
+        --bg-4: oklch(0.21 0.0159 316.39 / 70%); /* Couleur de fond principale */
+            --hover: oklch(0.48 0.0678 313.43 / 10%); /* Canaux et boutons au survol */
+            --active: oklch(0.49 0.0447 264.03 / 20%); /* Canaux et boutons lorsqu'ils sont cliqués ou sélectionnés */
+            --active-2: oklch(0.49 0.0447 264.03 / 30%); /* État supplémentaire pour les boutons transparents */
+            --message-hover: oklch(0 0 0 / 10%); /* Messages au survol */
 
-    /* Couleurs de fond et sombres */
-    --bg-1: rgba(10, 10, 30, 0.9); /* Boutons sombres lorsqu'ils sont cliqués */
-    --bg-2: rgba(10, 10, 30, 0.8); /* Boutons sombres */
-    --bg-3: rgba(10, 10, 30, 0.7); /* Espacement, éléments secondaires */
-    --bg-4: rgba(10, 10, 30, 0.6); /* Couleur de fond principale */
-    --hover: rgba(0, 240, 255, 0.1); /* Canaux et boutons au survol */
-    --active: rgba(0, 240, 255, 0.2); /* Canaux et boutons lorsqu'ils sont cliqués ou sélectionnés */
-    --active-2: rgba(0, 240, 255, 0.3); /* État supplémentaire pour les boutons transparents */
-    --message-hover: rgba(0, 240, 255, 0.1); /* Messages au survol */
+    /* ========== Couleurs d'accentuation (modifiées pour utiliser les violets) ========== */
+        --accent-1: oklch(0.86 0.17 196); /* Liens et texte d'accentuation */
+        --accent-2: oklch(0.65 0.2732 346.88); /* Petits éléments d'accentuation */
+        --accent-3: oklch(0.55 0.28 300); /* Boutons d'accentuation */
+        --accent-4: oklch(0.90 0.18 160); /* Boutons d'accentuation au survol */
+        --accent-5: oklch(0.65 0.20 20); /* Boutons d'accentuation lorsqu'ils sont cliqués */
+        --accent-new: oklch(0.55 0.28 300); /* Éléments comme les boutons de sourdine/désactivation */
+            --mention: linear-gradient(to right, color-mix(in hsl, oklch(0.86 0.17 196), transparent 90%) 40%, transparent);/* Fond des messages qui vous mentionnent */
+            --mention-hover: linear-gradient(to right, color-mix(in hsl, oklch(0.65 0.2732 346.88), transparent 95%) 40%, transparent);/* Fond des messages qui vous mentionnent au survol */
+            --reply: linear-gradient(to right, color-mix(in hsl, oklch(0.55 0.28 300), transparent 90%) 40%, transparent); /* Fond des messages qui vous répondent */
+            --reply-hover: linear-gradient(to right, color-mix(in hsl, oklch(0.55 0.28 300), transparent 95%) 40%, transparent);/* Fond des messages qui vous répondent au survol */
 
-    /* Couleurs d'accentuation */
-    --accent-1: var(--neon-blue); /* Liens et texte d'accentuation */
-    --accent-2: var(--neon-pink); /* Petits éléments d'accentuation */
-    --accent-3: var(--neon-purple); /* Boutons d'accentuation */
-    --accent-4: var(--neon-green); /* Boutons d'accentuation au survol */
-    --accent-5: var(--neon-red); /* Boutons d'accentuation lorsqu'ils sont cliqués */
-    --accent-new: var(--neon-purple); /* Éléments comme les boutons de sourdine/désactivation */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--neon-blue), transparent 90%) 40%, transparent); /* Fond des messages qui vous mentionnent */
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--neon-pink), transparent 95%) 40%, transparent); /* Fond des messages qui vous mentionnent au survol */
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--neon-purple), transparent 90%) 40%, transparent); /* Fond des messages qui vous répondent */
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--neon-purple), transparent 95%) 40%, transparent); /* Fond des messages qui vous répondent au survol */
+    /* ========== Couleurs des indicateurs de statut ========== */ 
+        --online: oklch(0.71 0.1958 149.62);
+        --dnd: oklch(63% 0.3 160);
+        --idle: oklch(0.8 0.1641 102.06);
+        --streaming: oklch(0.36 0.1614 320.67);
+        --offline: oklch(0.49 0.1935 28.37);
 
-    /* Couleurs des indicateurs de statut */
-    --online: var(--neon-green); /* En ligne */
-    --dnd: var(--neon-red); /* Ne pas déranger */
-    --idle: var(--neon-purple); /* Inactif */
-    --streaming: var(--neon-pink); /* En streaming */
-    --offline: #6060ff; /* Hors ligne */
+    /* ========== Couleurs des bordures ========== */
+        --border-light: oklch(0.61 0.2282 342.98 / 0.9); /* Couleur de bordure claire */
+        --border: oklch(0.47 0.0558 275.32 / 20%); /* Couleur de bordure normale */
+        --button-border: oklch(1 0 0 / 10%);/* Couleur de bordure neutre des boutons */
+        --border-hover: oklch(0.61 0.2282 342.98 / 0.9); /* border color of panels when hovered */
+
+    /* ========== Couleurs néon cyberpunk ========== */  
+        --neon-blue: oklch(0.86 0.17 196); /* Bleu néon */
+        --neon-pink: oklch(0.65 0.2732 346.88); /* Rose néon */
+        --neon-purple: oklch(0.55 0.28 300);/* Violet néon */
+        --neon-green: oklch(0.90 0.18 160); /* Vert néon */
+        --neon-red: oklch(0.65 0.20 20);  /* Rouge néon */
+        --neon-dark: oklch(0.20 0.02 260);/* Fond sombre */
+
+    /* ==========  radialstatut.css ========== */
+        /* ========== Spacing ========== */
+            --rs-small-spacing: 2px; /* Gap between avatar and status for members list/dms | MUST end in px */
+            --rs-medium-spacing: 3px; /* Gap between avatar and status for User popout | MUST end in px */
+            --rs-large-spacing: 4px; /* Gap between avatar and status for User profiles | MUST end in px */
+        /* ========== Widths ========== */
+            --rs-small-width: 2px; /* Thickness of status border for members list/dms | MUST end in px */
+            --rs-medium-width: 3px; /* Thickness of status border for User popout | MUST end in px */
+            --rs-large-width: 4px; /* Thickness of status border for User profile | MUST end in px */
+        /* ========== Shape ========== */
+            --rs-avatar-shape: 50%; /* 50% for round - 0% for square */
+        /* ========== Colours ========== */
+            --rs-online-color: #43b581; /* Colour for online status */
+            --rs-idle-color: #faa61a; /* Colour for idle status */
+            --rs-dnd-color: #f04747; /* Colour for dnd status */
+            --rs-offline-color: #636b75; /* Colour for offline status */
+            --rs-streaming-color: #643da7; /* Colour for streaming status */
+            --rs-invisible-color: #747f8d; /* Colour for invisible status - Note: this will only show for your own invisibility */
+            --rs-self-speaking-color: #57d39b; /* Colour for speaking ring in the bottom left while in a voice chat/call */
+            --rs-phone-color: var(--rs-online-color); /* Colour of the ring & phone icon  */
+        /* ========== Others   ========== */
+            --rs-phone-visible: block; /* Visibility of the phone icon next to a users avatar. | block = visible | none = hidden */ 
 }
 
+/* ==========  addons.css ========== */
+.visual-refresh {
 
-/* hide nameplates */
+        .guildSeparator__252b6 {width: 40px !important;background-color: oklch(70% 0.1 215);margin: 0.38px;}
+        .icon__2ea32 {color: oklch(70% 0.1 215) !important; /* Vert pour les écouteurs */} /* Colorer les icônes des salons vocaux (écouteurs) */
+        div[class^=channelAppLauncher_] {display:  var(--showplaying) !important;}
+        button:has([d^=' M-7,10 C-8' i]) { display: var(--showNitroButton); } /* Hide Gift Button */
+        .container__4bbc6 { display: none; }
+        .title_c38106 { display: none; }  
+        [class*=emojiButton] [class*=spriteColored]{background: var(--customEmojiIconURL) center/contain no-repeat;}
+        [class*=emojiButton] [class*=spriteGreyscale]{mask: var(--customEmojiIconMask) center/contain no-repeat;}
+    
+    /* ==========  Search Bar.css ========== */
+        [class*=search]:not([class*=open]) > [class^=searchBar] {width: 22px;margin-top: 6px;margin-right: 8px;background: transparent;border-width: 0px;}
+        [class*=searchBarComponent]{background: transparent;}
+        [class*=search]:not([class*=open]) [class^='iconLayout'] {cursor: pointer;}
+        [class*=search]:not([class*=open]) [class^='iconContainer'] {transform: scale(1.4);}
+        [class*=search]:not([class*=open]) [class^='icon_fea832']{color: var(--interactive-normal);}
+        [class*=search]:not([class*=open]):hover [class^='icon'] {color: var(--interactive-active);}
+ 
+    /* ==========   AUTO COMPLETE EMOJI ANIMATION.css ========== */
+        div[class*=autocompleteInner] [class*=clickable] [class*=base]:hover{transition: all 0s;transform: scale(1.02);}
+        div[class*=autocompleteInner] [class*=base]{ transition: all 0.3s;}
+ 
+    /* ========== Light Néon  ========== */
+        div[class*="guilds-"], div[class*="base-"], div[class*="chat-"] {background: transparent !important;border-radius: 20% 20% / 20% 20%;backdrop-filter: blur(7px) !important;border: 2px solid var(--neon-blue) !important;box-shadow: 0 0 10px var(--neon-blue);animation: var(--animations, none) neonScan 3s infinite;}
+   
+    /* ========== Icônes de dossier  ========== */
+        .expandedFolderIconWrapper__48112 svg {filter: drop-shadow(20 20 20px var(--neon-pink)) drop-shadow(20px 20px 20px var(--neon-cyan));transition: all 0.6s ease;animation: Glow 1s infinite!important;}
+        .expandedFolderIconWrapper__48112:hover {transform: scale(1.5) rotate(15deg);filter: drop-shadow(0 0 20px var(--neon-blue)) drop-shadow(0 0 25px var(--neon-pink));}
 
-/* a few side-effects, includes but not limited to:
- * removing the highlight on selected member
- * the x in dms is darker
- * prob some other stuff that i havent realized
- */
- .container__4bbc6 {
-    display: none;
 }
+ 
 
+/* ========== Lecteur Spotify ========== */  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-/* Panneaux semi-transparents avec flou et bordures néon clignotantes */
-div[class*="guilds-"], div[class*="base-"], div[class*="chat-"] {
-    background: rgba(10, 10, 30, 0.6) !important; /* Fond semi-transparent */
-    backdrop-filter: blur(12px) !important; /* Flou d'arrière-plan */
-    border: 2px solid var(--neon-blue) !important; /* Bordure néon plus épaisse */
-    box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink) !important; /* Ombre lumineuse plus intense */
-    animation: panelGlow 2s infinite !important; /* Pulsation néon */
-}
+/* ========== Animations Spotify ========== */
+@keyframes shimmer {0% { transform: translateX(-100%); }100% { transform: translateX(100%); }}
+@keyframes pulse {0% { transform: scale(1); }50% { transform: scale(1.02); }100% { transform: scale(1); }}
 
-/* Animation de pulsation pour les panneaux */
-@keyframes panelGlow {
-    0% { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink); border-color: var(--neon-blue); }
-    50% { box-shadow: 0 0 30px var(--neon-blue), 0 0 50px var(--neon-pink); border-color: var(--neon-pink); }
-    100% { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink); border-color: var(--neon-blue); }
-}
+/* ========== Modify bounding box ========== */
+#vc-spotify-player {position: relative;height: 100px;border: 0;--vc-spotify-green: oklch(0.55 0.28 300) !important;z-index: -1;transition: height 0.25s ease-in-out, box-shadow 0.3s ease;background: linear-gradient(135deg, rgba(29, 185, 84, 0.2), rgba(0, 0, 0, 0.5));border-radius: 10px;display: flex; /* Pour aligner pochette et textes */ align-items: center; /* Centrage vertical */justify-content: center; /* Centrage horizontal en mode flou */padding: 10px; /* Espacement interne */}
 
-/* Barre de titre avec effet glitch avancé */
-div[class*="titleBar-"] {
-    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple)) !important;
-    background-size: 200% 100% !important;
-    color: var(--neon-green) !important;
-    animation: glitchTitle 1s infinite, wave 3s infinite !important;
-    text-shadow: 0 0 10px var(--neon-green) !important;
-}
+/* ========== Grow in size and glowing border when hovered ========== */
+#vc-spotify-player:hover {height: 125px;justify-content: flex-start; /* Revenir à l’alignement à gauche en mode non flou */}
 
-/* Animation glitch pour la barre de titre */
-@keyframes glitchTitle {
-    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    10% { transform: translate(-5px, 5px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    20% { transform: translate(5px, -5px); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    30% { transform: translate(-5px, 5px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    40% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-}
+/* ========== Background album art with pulse animation ========== */
+#vc-spotify-player::before {content: "";position: absolute;height: 200%;width: 100%;top: 0;left: 0;z-index: -1;background: var(--vc-spotify-track-image);background-size: 110%;background-position: 60% 60%;filter: blur(5px) brightness(50%);transition: all 0.25s ease-in-out;border-radius: 10px;animation: pulse 2s ease-in-out infinite;}
+#vc-spotify-player:hover::before {filter: blur(0) brightness(50%);animation: none;}
 
-/* Animation de vague pour les dégradés */
-@keyframes wave {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+/* ========== Album image (visible and centered only when blur is active) petite image  ========== */
+#vc-spotify-album-image {display: block; /* Visible par défaut (quand flou actif) */width: 60px; /* Taille agrandie */height: 60px;margin-top: -15px;margin-left:180px;filter: drop-shadow(0 0 2px black); /* Ombre portée */transition: transform 0.2s ease, opacity 0.2s ease; /* Animation fluide */opacity: 1; /* Visible par défaut */}
 
-/* Effet de vague lumineuse sur les canaux au survol */
-div[class*="channel-"] {
-    position: relative !important;
-    transition: all 0.3s ease !important;
-    color: var(--neon-blue) !important;
-}
+/* Masquer l’image au survol (quand flou désactivé) */
+#vc-spotify-player:hover #vc-spotify-album-image {opacity: 0; /* Disparaît en douceur */display: none; /* Assure que l’espace est libéré */}
 
-div[class*="channel-"]:hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--neon-pink), transparent) !important;
-    animation: wave 1s infinite !important;
-    z-index: -1 !important;
-}
+/* ========== Increase song title size with neon effect and emoji ========== */
+#vc-spotify-song-title {font-size: 130%;margin-top: -5px;color: oklch(0.55 0.28 300);filter: drop-shadow(0 0 2px black);text-shadow: 0 0 6px rgba(0, 0, 0, 0.185), 0 0 10px var(--vc-spotify-green);transition: text-shadow 0.3s ease, margin 0.2s ease, text-align 0.2s ease; /* Animation fluide */font-family: 'Poppins', sans-serif !important;}
 
-div[class*="channel-"]:hover {
-    color: var(--neon-pink) !important;
-    text-shadow: 0 0 10px var(--neon-pink) !important;
-}
+/* Positionner le titre en haut à gauche en mode non flou */
+#vc-spotify-player:hover #vc-spotify-song-title {top: 20px; /* Placer en haut */right: 250px; /* Placer à gauche */margin: 0; /* Supprimer les marges */text-align: left; /* Alignement à gauche */}
+#vc-spotify-titles span {visibility: visible;position: relative;color: rgb(184, 179, 179);filter: drop-shadow(0 0 2px black);text-shadow: 0 0 6px rgba(0, 0, 0, 0.185);font-family: 'Poppins', sans-serif !important;}
 
-/* Effet glitch avancé sur les messages */
-div[class*="message-"] {
-    position: relative !important;
-    transition: all 0.3s ease !important;
-    color: var(--neon-blue) !important;
-}
+/* Positionner l’artiste en haut à gauche en mode non flou */
+#vc-spotify-player:hover #vc-spotify-titles {position: absolute;top: 9px; /* Juste en-dessous du titre */left: 1px; /* Placer à gauche */margin: 2; /* Supprimer les marges */text-align: left; /* Alignement à gauche */}
 
-div[class*="message-"]:hover {
-    animation: messageGlitch 0.3s infinite !important;
-    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink) !important;
-}
+/* ========== Change progress bar color with shimmer effect ========== */
+.barFill_a562c8::after {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);animation: shimmer 2s infinite linear;}
 
-/* Animation glitch pour les messages */
-@keyframes messageGlitch {
-    0% { transform: translate(0); color: var(--neon-blue); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    20% { transform: translate(-3px, 3px); color: var(--neon-pink); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    40% { transform: translate(3px, -3px); color: var(--neon-purple); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    60% { transform: translate(-3px, 3px); color: var(--neon-green); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    80% { transform: translate(3px, -3px); color: var(--neon-red); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    100% { transform: translate(0); color: var(--neon-blue); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-}
+/* ========== Button row with hover animation ========== */
+.vc-spotify-button-row {filter: drop-shadow(0 0 2px black);position: relative;top: 20px;right:-75px;display: flex;justify-content: center;}
+.vc-spotify-button-row button {transition: transform 0.2s ease, background-color 0.2s ease;}
+.vc-spotify-button-row button:hover {transform: scale(1.1);background-color: var(--vc-spotify-green);}
 
-/* Effet de distorsion sur les messages mentionnés */
-div[class*="mentioned-"] {
-    position: relative !important;
-    background: none !important;
-}
+/* ========== Drop shadow & color for the time text ========== */
+.vc-spotify-progress-time {filter: drop-shadow(0 0 2px black);font-family: 'Poppins', sans-serif !important;}
 
-div[class*="mentioned-"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--neon-red), transparent) !important;
-    animation: wave 1s infinite !important;
-    z-index: -1 !important;
-}
+/* ========== Remove clipping for big chars (ex. y, g) ========== */
+.vc-spotify-ellipoverflow {overflow: visible;}
 
-div[class*="mentioned-"] {
-    animation: distortion 2s infinite !important;
-}
+/* ========== Drop shadow for visibility ========== */
+.buttons__37e49 button,
+.avatarWrapper__37e49 {filter: drop-shadow(0 0 2px black);}
 
-/* Animation de distorsion */
-@keyframes distortion {
-    0% { transform: skew(0deg); }
-    20% { transform: skew(2deg); }
-    40% { transform: skew(-2deg); }
-    60% { transform: skew(2deg); }
-    80% { transform: skew(-2deg); }
-    100% { transform: skew(0deg); }
-}
+/* ========== Position progress bar (shifted 1cm down in blur mode) ========== */
+#vc-spotify-progress-bar {position: absolute !important;top: calc(60% + 10px); /* Décalage de 1cm (10px) en mode flou */width: 80% !important;left: 9%;display: block !important; /* Assure la visibilité */z-index: 1; /* Place au-dessus du fond */}
 
-/* Halo animé sur les avatars */
-div[class*="avatar-"] {
-    position: relative !important;
-    border-radius: 50% !important;
-}
-
-div[class*="avatar-"]::before {
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-purple) !important;
-    opacity: 0;
-    animation: halo 2s infinite !important;
-    z-index: -1 !important;
-}
-
-/* Animation du halo */
-@keyframes halo {
-    0% { opacity: 0; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.3); }
-    100% { opacity: 0; transform: scale(1); }
-}
-
-/* Effet de particules sur la barre latérale des serveurs */
-div[class*="guilds-"] {
-    position: relative !important;
-    overflow: hidden !important;
-}
-
-div[class*="guilds-"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--neon-blue) 1px, transparent 1px),
-                radial-gradient(circle, var(--neon-pink) 1px, transparent 1px),
-                radial-gradient(circle, var(--neon-green) 1px, transparent 1px) !important;
-    background-size: 20px 20px !important;
-    background-position: 0 0, 10px 10px, 5px 5px !important;
-    animation: particles 5s linear infinite !important;
-    opacity: 0.5 !important; /* Augmenter l'opacité */
-    pointer-events: none !important;
-    z-index: 1 !important;
-}
-
-/* Icônes de serveurs avec effet glitch */
-div[class*="guild-"] {
-    animation: guildGlitch 2s infinite !important;
-}
-
-/* Animation glitch pour les icônes de serveurs */
-@keyframes guildGlitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
-}
-
-/* Séparateurs de messages avec effet glitch et vague */
-div[class*="divider-"] {
-    border: none !important;
-    height: 2px !important;
-    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple), var(--neon-green)) !important;
-    background-size: 200% 100% !important;
-    animation: wave 2s infinite, glitchDivider 1s infinite !important;
-    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink) !important;
-}
-
-/* Animation glitch pour les séparateurs */
-@keyframes glitchDivider {
-    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    20% { transform: translate(-3px, 0); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    40% { transform: translate(3px, 0); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    60% { transform: translate(-3px, 0); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    80% { transform: translate(3px, 0); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-}
-
-/* Barre de chat avec effet néon et particules */
-div[class*="chatInput-"] {
-    position: relative !important;
-    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-pink)) !important;
-    background-size: 200% 100% !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    animation: wave 3s infinite !important;
-    box-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-pink) !important;
-    border: 2px solid var(--neon-blue) !important;
-    animation: panelGlow 2s infinite !important; /* Pulsation néon */
-}
-
-/* S'assurer que tous les boutons de la barre de chat sont visibles */
-div[class*="chatInput-"] div[class*="buttons-"] {
-    display: flex !important; /* Forcer l'affichage des boutons */
-    opacity: 1 !important; /* S'assurer qu'ils ne sont pas masqués */
-    gap: 8px !important; /* Espacement entre les boutons */
-}
-
-/* Style des boutons de la barre de chat */
-div[class*="chatInput-"] div[class*="buttons-"] button {
-    background: transparent !important;
-    border: 1px solid var(--neon-blue) !important;
-    border-radius: 5px !important;
-    box-shadow: 0 0 10px var(--neon-blue) !important;
-    transition: all 0.3s ease !important;
-    padding: 5px !important;
-}
-
-/* Effet au survol des boutons */
-div[class*="chatInput-"] div[class*="buttons-"] button:hover {
-    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink)) !important;
-    box-shadow: 0 0 15px var(--neon-pink) !important;
-    border-color: var(--neon-pink) !important;
-    animation: buttonGlitch 0.5s infinite !important;
-}
-
-/* Animation glitch pour les boutons */
-@keyframes buttonGlitch {
-    0% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-    20% { transform: translate(-3px, 3px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    40% { transform: translate(3px, -3px); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    60% { transform: translate(-3px, 3px); clip-path: polygon(0 0, 100% 0, 100% 80%, 0 90%); }
-    80% { transform: translate(3px, -3px); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%); }
-    100% { transform: translate(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-}
-
-/* Particules sur la barre de chat */
-div[class*="chatInput-"]::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--neon-pink) 1px, transparent 1px),
-                radial-gradient(circle, var(--neon-blue) 1px, transparent 1px),
-                radial-gradient(circle, var(--neon-green) 1px, transparent 1px) !important;
-    background-size: 20px 20px !important;
-    background-position: 0 0, 10px 10px, 5px 5px !important;
-    animation: particles 3s linear infinite !important;
-    opacity: 0.5 !important; /* Augmenter l'opacité */
-    pointer-events: none !important;
-    z-index: 1 !important;
-}
-
-/* Animation des particules */
-@keyframes particles {
-    0% { background-position: 0 0, 10px 10px, 5px 5px; }
-    100% { background-position: 20px 20px, 30px 30px, 25px 25px; }
-}
-
-.wrapper__2ea32:hover .unread__2ea32 {
-    width: 12px;
-    height: 12px;
-    margin-top: -6px;
-    margin-left: 3px;
-    background-color: transparent;
-    background: url('https://cdn.discordapp.com/emojis/1219786734557204491.webp?size=48');
-    background-size: 12px;
-    background-position: center;
-}
+/* Remonter la barre en mode non flou */
+#vc-spotify-player:hover #vc-spotify-progress-bar {top: 70%; /* Position par défaut sans décalage */}
